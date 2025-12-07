@@ -1,0 +1,7 @@
+#root-inner {
+    min-width: 8rem;
+}
+
+#storybook-root {
+    max-width: 100%;
+}

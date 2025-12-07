@@ -1,0 +1,14 @@
+name: ember-nexus-app-plugin-template
+
+services:
+  
+  core:
+    container_name: ember-nexus-app-plugin-template-core
+    build: .
+    tty: true
+    volumes:
+      - ../core:/core
+    working_dir: /core
+    ports:
+      - 3000:3000
+      - 6006:6006
