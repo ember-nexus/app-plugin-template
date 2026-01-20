@@ -12,9 +12,9 @@
   "module": "dist/esm/index.js",
   "types": "dist/types/index.d.ts",
   "scripts": {
-    "build": "rm -rf ./dist && yarn build:esm && yarn build:browser",
+    "build": "rm -rf ./dist && pnpm build:esm && pnpm build:browser",
     "build:browser": "vite build",
-    "build:esm": "yarn tsc -b tsconfig.esm.json && yarn cpy 'src/**/*' '!src/**/*.ts' dist/esm",
+    "build:esm": "pnpm tsc -b tsconfig.esm.json && pnpm cpy 'src/**/*' '!src/**/*.ts' dist/esm",
     "cs": "eslint ./src",
     "cs:fix": "eslint ./src --fix",
     "test:unit": "vitest run ./test/Unit",
@@ -88,6 +88,5 @@
     "extends": [
       "plugin:storybook/recommended"
     ]
-  },
-  "packageManager": "yarn@4.12.0"
+  }
 }

@@ -7,3 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Unreleased
 ### Added
 - Add initial files.
+### Changed
+- Replace Yarn v4 with PNPM.
+  Note: I really liked Yarn; it is a great tool, did great things, and still does. However, integrating it into Docker
+  images and CI/CD pipelines became too cumbersome.

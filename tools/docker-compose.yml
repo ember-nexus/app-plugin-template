@@ -4,7 +4,9 @@ services:
   
   core:
     container_name: ember-nexus-app-plugin-template-core
-    build: .
+    build:
+      dockerfile: tools/Dockerfile
+      context: ..
     tty: true
     volumes:
       - ../core:/core
