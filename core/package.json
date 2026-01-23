@@ -1,6 +1,6 @@
 {
   "name": "@ember-nexus/app-plugin-template",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
   "engines": {
     "node": ">= 20.0"
@@ -8,7 +8,9 @@
   "browserslist": [
     "last 2 years"
   ],
-  "keywords": ["ember-nexus-plugin"],
+  "keywords": [
+    "ember-nexus-plugin"
+  ],
   "main": "dist/esm/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/types/index.d.ts",
