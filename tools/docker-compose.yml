@@ -1,7 +1,7 @@
 name: ember-nexus-app-plugin-template
 
 services:
-  
+
   core:
     container_name: ember-nexus-app-plugin-template-core
     build:
