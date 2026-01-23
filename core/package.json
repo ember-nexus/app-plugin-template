@@ -28,6 +28,10 @@
   },
   "author": "Syndesi <info@ember-nexus.dev>",
   "license": "MIT",
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "dependencies": {
     "lit": "^3.1.3"
   },
