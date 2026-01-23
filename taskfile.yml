@@ -10,7 +10,6 @@ tasks:
     deps:
       - build:web
       - build:module-docs
-      - build:module-python-anywidget
       - build:module-storybook
 
   build:web:
@@ -20,10 +19,6 @@ tasks:
   build:module-docs:
     cmds:
       - echo "build module docs"
-
-  build:module-python-anywidget:
-    cmds:
-      - echo "build module python anywidget"
 
   build:module-storybook:
     cmds:
