@@ -89,7 +89,7 @@ jobs:
         working-directory: ./core
         run: pnpm publish --verbose --access public --tag ${{ env.RELEASE_TAG }}
         env:
-          NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Create local package
         working-directory: ./core
