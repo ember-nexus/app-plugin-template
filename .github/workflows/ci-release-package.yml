@@ -94,7 +94,7 @@ jobs:
       - name: Create local package
         working-directory: ./core
         run: |
-          pnpm pack --filename "ember-nexus-app-plugin-template-${{ env.NEW_VERSION }}.tar.gz"
+          pnpm pack --out "ember-nexus-app-plugin-template-${{ env.NEW_VERSION }}.tar.gz"
           ls -lah
           pwd
 
