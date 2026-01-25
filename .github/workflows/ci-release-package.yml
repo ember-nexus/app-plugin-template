@@ -120,4 +120,4 @@ jobs:
           body: ${{ steps.get-changelog.outputs.changelog }}
           prerelease: ${{ startsWith(github.event.inputs.release-type, 'pre') }}
           token: ${{ secrets.RELEASE_TOKEN }}
-          files: core/ember-nexus-app-plugin-experimental-${{ env.NEW_VERSION }}.tar.gz
+          files: core/ember-nexus-app-plugin-template-${{ env.NEW_VERSION }}.tar.gz
