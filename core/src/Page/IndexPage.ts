@@ -12,6 +12,8 @@ class IndexPage extends LitElement {
       <div class="card bg-base-100 w-full shadow-sm">
         <div class="card-body p-3">
           <h2 class="card-title">Index Page</h2>
+          <p>Hello world :D</p>
+          <button class="btn btn-primary">Style Test Button</button>
         </div>
       </div>
     `;

@@ -1,22 +1,13 @@
-import { GetElementEndpoint } from '@ember-nexus/app-core/Endpoint/Element';
 import { RouteResolver, ServiceResolver } from '@ember-nexus/app-core/Service';
 import {
+  pluginInit,
   validatePluginIdentifierFromString,
   validateRouteIdentifierFromString,
 } from '@ember-nexus/app-core/Type/Definition';
 
-function init(serviceResolver: ServiceResolver): void {
+const init: pluginInit = (serviceResolver: ServiceResolver) => {
   // eslint-disable-next-line no-console
-  console.log('template plugin: init function called');
-  // eslint-disable-next-line no-console
-  console.log('service resolver:');
-  // eslint-disable-next-line no-console
-  console.log(serviceResolver);
-  // eslint-disable-next-line no-console
-  console.log(serviceResolver?.getService(GetElementEndpoint.identifier));
-
-  // eslint-disable-next-line no-console
-  console.log('configuring routes');
+  console.log('app-plugin-template: init start');
   const routeResolver = serviceResolver.getServiceOrFail<RouteResolver>(RouteResolver.identifier);
   routeResolver.addRouteConfiguration({
     guard(): Promise<boolean> {
@@ -29,7 +20,9 @@ function init(serviceResolver: ServiceResolver): void {
     webComponent: 'ember-nexus-template-page-index',
   });
   // eslint-disable-next-line no-console
-  console.log('configuration complete');
-}
+  console.log('app-plugin-template: init completed');
+
+  return Promise.resolve();
+};
 
 export { init };
