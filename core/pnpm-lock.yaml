@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@ember-nexus/app-core':
-        specifier: ^0.0.12
-        version: 0.0.12
+        specifier: ^0.1.0
+        version: 0.1.0
       daisyui:
         specifier: ^5.0.43
         version: 5.5.14
@@ -204,8 +204,8 @@ packages:
     resolution: {integrity: sha512-IchNf6dN4tHoMFIn/7OE8LWZ19Y6q/67Bmf6vnGREv8RSbBVb9LPJxEcnwrcwX6ixSvaiGoomAUvu4YSxXrVgw==}
     engines: {node: '>=12'}
 
-  '@ember-nexus/app-core@0.0.12':
-    resolution: {integrity: sha512-HTCgBIhadHwxfBCPrZ9ZJJJ/pMaFXX003Iy8yx94aj69qT1yT5oTcV8S+Cgggga/9O/qJexxuSxXHg4IEk1n0g==}
+  '@ember-nexus/app-core@0.1.0':
+    resolution: {integrity: sha512-Uhw5lIuoY4nuimb5lEcZ1GREA7zliXnGl0wXPVZqp2wROSfYwvKc1amN49wRgPJzQ+F4C1KOGNHenAk8WtzQnQ==}
     engines: {node: '>= 20.0'}
 
   '@emnapi/core@1.8.1':
@@ -3258,7 +3258,7 @@ snapshots:
     dependencies:
       '@jridgewell/trace-mapping': 0.3.9
 
-  '@ember-nexus/app-core@0.0.12':
+  '@ember-nexus/app-core@0.1.0':
     dependencies:
       lit: 3.3.2
       lru-cache: 11.2.4

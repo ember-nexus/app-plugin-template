@@ -1,7 +1,7 @@
 import { LitElement, TemplateResult, html, unsafeCSS } from 'lit';
 import { customElement } from 'lit/decorators.js';
 
-import { indexStyles } from '../Style/index.js';
+import { indexStyles } from '../index.js';
 
 @customElement('ember-nexus-template-page-index')
 class IndexPage extends LitElement {

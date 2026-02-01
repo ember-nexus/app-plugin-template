@@ -1,0 +1,12 @@
+@import "@ember-nexus/app-core/style.css";
+@import "tailwindcss";
+
+@plugin "daisyui";
+
+.thumbnail {
+    aspect-ratio: 1;
+    width: min(100%, 8em);
+    min-width: 4em;
+    container-type: size;
+    display: inline-block;
+}

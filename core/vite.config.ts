@@ -16,7 +16,6 @@ export default {
     rollupOptions: {
       input: [
         resolve(__dirname, './src/index.ts'),
-        resolve(__dirname, './src/Style/index.css'),
       ],
       output: {
         entryFileNames: "[name].js",

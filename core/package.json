@@ -33,7 +33,7 @@
     "README.md"
   ],
   "dependencies": {
-    "@ember-nexus/app-core": "^0.0.12",
+    "@ember-nexus/app-core": "^0.1.0",
     "daisyui": "^5.0.43",
     "lit": "^3.1.3",
     "tailwindcss": "^4.1.11"
@@ -90,5 +90,42 @@
     "extends": [
       "plugin:storybook/recommended"
     ]
+  },
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "import": {
+        "types": "./dist/types/index.d.ts",
+        "default": "./dist/esm/index.js"
+      }
+    },
+    "./style.css": {
+      "browser": "./dist/browser/index.css",
+      "default": "./dist/esm/index.css"
+    },
+    "./Component": {
+      "import": {
+        "types": "./dist/types/Component/index.d.ts",
+        "default": "./dist/esm/Component/index.js"
+      }
+    },
+    "./Component/Demo": {
+      "import": {
+        "types": "./dist/types/Component/Demo/index.d.ts",
+        "default": "./dist/esm/Component/Demo/index.js"
+      }
+    },
+    "./Page": {
+      "import": {
+        "types": "./dist/types/Page/index.d.ts",
+        "default": "./dist/esm/Page/index.js"
+      }
+    },
+    "./Style": {
+      "import": {
+        "types": "./dist/types/Style/index.d.ts",
+        "default": "./dist/esm/Style/index.js"
+      }
+    }
   }
 }
