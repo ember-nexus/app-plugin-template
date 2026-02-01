@@ -120,12 +120,6 @@
         "types": "./dist/types/Page/index.d.ts",
         "default": "./dist/esm/Page/index.js"
       }
-    },
-    "./Style": {
-      "import": {
-        "types": "./dist/types/Style/index.d.ts",
-        "default": "./dist/esm/Style/index.js"
-      }
     }
   }
 }
