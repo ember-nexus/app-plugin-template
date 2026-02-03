@@ -17,7 +17,7 @@
   "scripts": {
     "build": "rm -rf ./dist && pnpm build:esm && pnpm build:browser",
     "build:browser": "vite build --config vite.config.ts",
-    "build:esm": "pnpm tsc -b tsconfig.esm.json && pnpm cpy 'src/**/*' '!src/**/*.ts' dist/esm && vite build --config vite.esm.config.ts && node ./build-esm.mjs && rm -rf ./dist/css && rm ./dist/esm/index.css",
+    "build:esm": "pnpm tsc -b tsconfig.esm.json && pnpm cpy 'src/**/*' '!src/**/*.ts' dist/esm && vite build --config vite.esm.config.ts && node ./build-esm.mjs && rm -rf ./dist/css && rm ./dist/esm/style.css",
     "cs": "eslint ./src",
     "cs:fix": "eslint ./src --fix",
     "test:unit": "vitest run ./test/Unit",

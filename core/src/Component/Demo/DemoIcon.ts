@@ -1,11 +1,11 @@
 import { LitElement, TemplateResult, html, unsafeCSS } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
-import { indexStyles } from '../../index.js';
+import { style } from '../../style.js';
 
 @customElement('ember-nexus-template-demo-icon')
 class DemoIcon extends LitElement {
-  static styles = [unsafeCSS(indexStyles)];
+  static styles = [unsafeCSS(style)];
 
   @property({ type: String, attribute: 'element-id' })
   elementId: string;

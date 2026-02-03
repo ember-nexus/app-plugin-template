@@ -3,8 +3,8 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const JS_FILE = path.resolve(__dirname, 'dist/esm/index.js');
-const CSS_FILE = path.resolve(__dirname, 'dist/css/index.css');
+const JS_FILE = path.resolve(__dirname, 'dist/esm/style.js');
+const CSS_FILE = path.resolve(__dirname, 'dist/css/style.css');
 
 let css = fs.readFileSync(CSS_FILE, 'utf8');
 let js = fs.readFileSync(JS_FILE, 'utf8');
@@ -18,12 +18,12 @@ css = css
 
 const cssAsJsString = JSON.stringify(css);
 const replaced = js.replace(
-  /import indexStyles from '\.\/index\.css\?inline';/,
-  `const indexStyles = ${cssAsJsString};`
+  /import style from '\.\/style\.css\?inline';/,
+  `const style = ${cssAsJsString};`
 );
 
 if (replaced === js) {
-  throw new Error('❌ indexStyles import/export not found — see build-esm.mjs');
+  throw new Error('❌ style import/export not found — see build-esm.mjs');
 }
 
 fs.writeFileSync(JS_FILE, replaced);

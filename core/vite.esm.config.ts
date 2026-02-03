@@ -9,9 +9,9 @@ export default {
     sourcemap: true,
     minify: true,
     rollupOptions: {
-      input: resolve(__dirname, './src/index.css'),
+      input: resolve(__dirname, './src/style.css'),
       output: {
-        assetFileNames: 'index.css',
+        assetFileNames: 'style.css',
       },
     },
     emptyOutDir: true,
