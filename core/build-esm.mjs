@@ -19,7 +19,7 @@ css = css
 const cssAsJsString = JSON.stringify(css);
 const replaced = js.replace(
   /import indexStyles from '\.\/index\.css\?inline';/,
-  `const indexStyles = ${cssAsJsString};`
+  `let indexStyles = ${cssAsJsString};`
 );
 
 if (replaced === js) {
