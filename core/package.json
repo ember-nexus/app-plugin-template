@@ -16,8 +16,8 @@
   "types": "dist/types/index.d.ts",
   "scripts": {
     "build": "rm -rf ./dist && pnpm build:esm && pnpm build:browser",
-    "build:browser": "vite build",
-    "build:esm": "pnpm tsc -b tsconfig.esm.json && pnpm cpy 'src/**/*' '!src/**/*.ts' dist/esm",
+    "build:browser": "vite build --config vite.config.ts",
+    "build:esm": "pnpm tsc -b tsconfig.esm.json && pnpm cpy 'src/**/*' '!src/**/*.ts' dist/esm && vite build --config vite.esm.config.ts && node ./build-esm.mjs && rm -rf ./dist/css && rm ./dist/esm/index.css",
     "cs": "eslint ./src",
     "cs:fix": "eslint ./src --fix",
     "test:unit": "vitest run ./test/Unit",
@@ -76,6 +76,7 @@
     "sinon": "^21.0",
     "storybook": "^10.1.4",
     "strong-mock": "^9.0.1",
+    "tailwindcss": "^4.1.11",
     "terser": "^5.44.1",
     "ts-mockito": "^2.6.1",
     "ts-node": "^10.9.2",
