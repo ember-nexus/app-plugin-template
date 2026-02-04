@@ -1,6 +1,6 @@
 {
   "name": "@ember-nexus/app-plugin-template",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "type": "module",
   "engines": {
     "node": ">= 20.0"
