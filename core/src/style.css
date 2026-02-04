@@ -1,5 +1,4 @@
 @import "tailwindcss";
-
 @plugin "daisyui";
 
 .thumbnail {
@@ -18,8 +17,4 @@ html, :root {
 }
 *, *:before, *:after {
     box-sizing: inherit;
-}
-
-:host {
-    --test-color: var(--test-color, #5DB057);
 }

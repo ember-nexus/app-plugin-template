@@ -17,7 +17,7 @@
   "scripts": {
     "build": "rm -rf ./dist && pnpm build:esm && pnpm build:browser",
     "build:browser": "vite build --config vite.config.ts",
-    "build:esm": "pnpm tsc -b tsconfig.esm.json && pnpm cpy 'src/**/*' '!src/**/*.ts' dist/esm && vite build --config vite.esm.config.ts && node ./build-esm.mjs && rm -rf ./dist/css && rm ./dist/esm/style.css",
+    "build:esm": "pnpm tsc -b tsconfig.esm.json && pnpm cpy 'src/**/*' '!src/**/*.ts' dist/esm && vite build --config vite.esm.config.ts && node ./build-esm.mjs && rm ./dist/esm/style.css && cp ./dist/css/style.css ./dist/esm/global.css && rm -rf ./dist/css",
     "cs": "eslint ./src",
     "cs:fix": "eslint ./src --fix",
     "test:unit": "vitest run ./test/Unit",
@@ -100,9 +100,8 @@
         "default": "./dist/esm/index.js"
       }
     },
-    "./style.css": {
-      "browser": "./dist/browser/index.css",
-      "default": "./dist/esm/index.css"
+    "./global.css": {
+      "default": "./dist/esm/global.css"
     },
     "./Component": {
       "import": {

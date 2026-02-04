@@ -13,7 +13,7 @@ let js = fs.readFileSync(JS_FILE, 'utf8');
 css = css
   .replace(/\(\(-webkit-hyphens:\s*none\)\)\s*and\s*/g, '')
   .replace(/\(-webkit-hyphens:\s*none\)\s*and\s*/g, '')
-  .replace(/:root\b/g, ':host')
+  // .replace(/:root\b/g, ':host')
   .trim();
 
 const cssAsJsString = JSON.stringify(css);
