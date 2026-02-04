@@ -9,7 +9,7 @@ class IndexPage extends LitElement {
 
   render(): TemplateResult {
     return html`
-      <div class="card bg-base-100 w-full shadow-sm">
+      <div class="card bg-base-100 bg-(--test-color) w-full shadow-sm">
         <div class="card-body p-3">
           <h2 class="card-title">Index Page</h2>
           <p>Hello world :D</p>
