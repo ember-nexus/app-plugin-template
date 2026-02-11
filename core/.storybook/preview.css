@@ -1,3 +1,13 @@
+.sb-main-fullscreen #storybook-root #root-inner {
+    height: 100vh;
+}
+
+/*.sb-main-fullscreen #storybook-root #root-inner > * {*/
+/*    display: block;*/
+/*    min-height: 100%;*/
+/*    width: 100%;*/
+/*}*/
+
 #root-inner {
     min-width: 8rem;
 }

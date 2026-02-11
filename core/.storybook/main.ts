@@ -3,23 +3,14 @@ import type { StorybookConfig } from '@storybook/web-components-vite';
 const config: StorybookConfig = {
   stories: ['../storybook/**/*.mdx', '../storybook/**/*.stories.ts'],
   tags: {
-    card: {
-      defaultFilterSelection: 'include',
-    },
-    icon: {
-      defaultFilterSelection: 'include',
-    },
-    inlineText: {
-      defaultFilterSelection: 'include',
-    },
-    pill: {
-      defaultFilterSelection: 'include',
-    },
-    thumbnail: {
-      defaultFilterSelection: 'include',
-    },
+    page: {},
+    card: {},
+    icon: {},
+    inlineText: {},
+    pill: {},
+    thumbnail: {}
   },
-  staticDirs: [{ from: '../dist/', to: '/dist' }],
+  // staticDirs: [{ from: '../dist/', to: '/dist' }],
   addons: [
     '@storybook/addon-themes',
     '@storybook/addon-a11y',
@@ -28,6 +19,9 @@ const config: StorybookConfig = {
   framework: {
     name: '@storybook/web-components-vite',
     options: {},
-  }
+  },
+  features: {
+    sidebarOnboardingChecklist: false
+  },
 };
 export default config;
