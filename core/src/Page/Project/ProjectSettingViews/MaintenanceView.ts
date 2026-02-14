@@ -49,7 +49,6 @@ class MaintenanceView extends LitElement {
   render(): TemplateResult {
     return html`
       <div class="flex flex-col gap-2 p-3">
-
         <div class="flex gap-2">
           <button class="btn btn-error" @click="${this.openDeleteProjectPrompt}">delete project</button>
         </div>
