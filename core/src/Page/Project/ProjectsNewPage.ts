@@ -1,5 +1,5 @@
 import { ApiWrapper, ServiceResolver } from '@ember-nexus/app-core/Service';
-import { NodeWithOptionalId} from '@ember-nexus/app-core/Type/Definition';
+import { NodeWithOptionalId } from '@ember-nexus/app-core/Type/Definition';
 import { ServiceIdentifier } from '@ember-nexus/app-core/Type/Enum';
 import { LitElement, TemplateResult, html, unsafeCSS } from 'lit';
 import { customElement } from 'lit/decorators.js';
@@ -7,8 +7,6 @@ import { customElement } from 'lit/decorators.js';
 import { withServiceResolver } from '../../Decorator/index.js';
 import { pageStyle } from '../../Style/index.js';
 import { style } from '../../style.js';
-
-
 
 @customElement('ember-nexus-template-page-projects-new')
 @withServiceResolver()
@@ -36,28 +34,25 @@ class ProjectNewPage extends LitElement {
     this.color = target.value;
   }
 
-  createNewProject(){
+  createNewProject() {
     const apiWrapper = this.serviceResolver.getServiceOrFail<ApiWrapper>(ServiceIdentifier.serviceApiWrapper);
     apiWrapper
-      .postIndex(
-        {
-          type: 'Project',
-          data: {
-            name: this.name,
-            description: this.description,
-            color: this.color
-          }
-        } satisfies NodeWithOptionalId
-      )
+      .postIndex({
+        type: 'Project',
+        data: {
+          name: this.name,
+          description: this.description,
+          color: this.color,
+        },
+      } satisfies NodeWithOptionalId)
       .then(() => {
-        console.log("saved");
+        console.log('saved');
       });
   }
 
   render(): TemplateResult {
     return html`
       <div class="m-auto container flex flex-col gap-2 p-3">
-
         <wa-breadcrumb>
           <wa-breadcrumb-item href="https://example.com/home">
             Projects
@@ -66,12 +61,7 @@ class ProjectNewPage extends LitElement {
           <wa-breadcrumb-item>New Project</wa-breadcrumb-item>
         </wa-breadcrumb>
 
-        <wa-input
-          label="Name"
-          required
-          value=${this.name}
-          @input=${this.handleNameChange}
-        ></wa-input>
+        <wa-input label="Name" required value=${this.name} @input=${this.handleNameChange}></wa-input>
 
         <wa-textarea
           label="Description"

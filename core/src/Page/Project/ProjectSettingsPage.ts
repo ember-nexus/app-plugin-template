@@ -1,13 +1,12 @@
 import { ApiWrapper, ServiceResolver } from '@ember-nexus/app-core/Service';
 import { ServiceIdentifier } from '@ember-nexus/app-core/Type/Enum';
-import {LitElement, TemplateResult, html, unsafeCSS} from 'lit';
-import {customElement, property} from 'lit/decorators.js';
+import { LitElement, TemplateResult, html, unsafeCSS } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
 
 import { withServiceResolver } from '../../Decorator/index.js';
 import { pageStyle } from '../../Style/index.js';
 import { style } from '../../style.js';
-import {Project} from "../../Type/Element";
-
+import { Project } from '../../Type/Element/index.js';
 
 @customElement('ember-nexus-template-page-project-settings')
 @withServiceResolver()
@@ -26,22 +25,33 @@ class ProjectSettingsPage extends LitElement {
   views = {
     general: {
       name: 'General',
-      component: () => html`<ember-nexus-template-page-project-settings-view-general element-id="${this.elementId}"></ember-nexus-template-page-project-settings-view-general>`
+      component: () =>
+        html`<ember-nexus-template-page-project-settings-view-general
+          element-id="${this.elementId}"
+        ></ember-nexus-template-page-project-settings-view-general>`,
     },
     taskStates: {
       name: 'Task States',
-      component: () => html`<ember-nexus-template-page-project-settings-view-task-states element-id="${this.elementId}"></ember-nexus-template-page-project-settings-view-task-states>`
+      component: () =>
+        html`<ember-nexus-template-page-project-settings-view-task-states
+          element-id="${this.elementId}"
+        ></ember-nexus-template-page-project-settings-view-task-states>`,
+    },
+    maintenance: {
+      name: 'Maintenance',
+      component: () =>
+        html`<ember-nexus-template-page-project-settings-view-maintenance
+          element-id="${this.elementId}"
+        ></ember-nexus-template-page-project-settings-view-maintenance>`,
     },
   };
 
   refreshData(): void {
     const apiWrapper = this.serviceResolver.getServiceOrFail<ApiWrapper>(ServiceIdentifier.serviceApiWrapper);
-    apiWrapper
-      .getElement(this.elementId)
-      .then((result) => {
-        this.project = result as Project;
-        this.requestUpdate();
-      });
+    apiWrapper.getElement(this.elementId).then((result) => {
+      this.project = result as Project;
+      this.requestUpdate();
+    });
   }
 
   changeView(event: Event): void {
@@ -55,8 +65,7 @@ class ProjectSettingsPage extends LitElement {
     }
   }
 
-  handleSelectViewChange(event: Event): void
-  {
+  handleSelectViewChange(event: Event): void {
     const target = event.target as HTMLSelectElement;
     this.currentView = target.value;
     this.requestUpdate();
@@ -86,25 +95,27 @@ class ProjectSettingsPage extends LitElement {
                 value=${this.currentView}
                 @change=${this.handleSelectViewChange}
               >
-                ${Object.entries(this.views).map(([key, { name }]) => html`
-                  <wa-option value="${key}">${name}</wa-option>
-                `)}
+                ${Object.entries(this.views).map(
+                  ([key, { name }]) => html` <wa-option value="${key}">${name}</wa-option> `,
+                )}
               </wa-select>
             </div>
 
             <div class="col-span-3 md:col-span-2 hidden sm:block">
               <ul class="menu w-full gap-1">
-                ${Object.entries(this.views).map(([key, { name }]) => html`
-                  <li>
-                    <button
-                      class=${this.currentView === key ? 'menu-active' : ''}
-                      data-view=${key}
-                      @click=${this.changeView}
-                    >
-                      ${name}
-                    </button>
-                  </li>
-                `)}
+                ${Object.entries(this.views).map(
+                  ([key, { name }]) => html`
+                    <li>
+                      <button
+                        class=${this.currentView === key ? 'menu-active' : ''}
+                        data-view=${key}
+                        @click=${this.changeView}
+                      >
+                        ${name}
+                      </button>
+                    </li>
+                  `,
+                )}
               </ul>
             </div>
 

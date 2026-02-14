@@ -1,7 +1,7 @@
-import {Node} from '@ember-nexus/app-core/Type/Definition';
+import { Node } from '@ember-nexus/app-core/Type/Definition';
 
 type Project = Node & {
-  type: 'Project',
+  type: 'Project';
   data: {
     name: string;
     description: string;
@@ -9,4 +9,4 @@ type Project = Node & {
   };
 };
 
-export {Project};
+export { Project };

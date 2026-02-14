@@ -42,37 +42,37 @@ class PlantsPage extends LitElement {
         {
           type: 'elasticsearch-query-dsl-mixin',
           query: {
-            "bool": {
-              "should": [
+            bool: {
+              should: [
                 {
-                  "match": {
-                    "name": {
-                      "query": this.query,
-                      "fuzziness": "AUTO",
-                      "boost": 10.0
-                    }
-                  }
+                  match: {
+                    name: {
+                      query: this.query,
+                      fuzziness: 'AUTO',
+                      boost: 10.0,
+                    },
+                  },
                 },
                 {
-                  "match": {
-                    "description": {
-                      "query": this.query,
-                      "fuzziness": "AUTO"
-                    }
-                  }
+                  match: {
+                    description: {
+                      query: this.query,
+                      fuzziness: 'AUTO',
+                    },
+                  },
                 },
                 {
                   match_phrase_prefix: {
                     name: {
                       query: this.query,
                       max_expansions: 50, // number of variations to try
-                      boost: 5.0
-                    }
-                  }
-                }
+                      boost: 5.0,
+                    },
+                  },
+                },
               ],
-              "minimum_should_match": 1
-            }
+              minimum_should_match: 1,
+            },
           },
           parameters: {
             nodeTypes: ['Plant'],

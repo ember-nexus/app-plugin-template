@@ -11,9 +11,7 @@ import { customElement } from 'lit/decorators.js';
 import { withServiceResolver } from '../../Decorator/index.js';
 import { pageStyle } from '../../Style/index.js';
 import { style } from '../../style.js';
-import {Project} from "../../Type/Element";
-
-
+import { Project } from '../../Type/Element/index.js';
 
 @customElement('ember-nexus-template-page-projects')
 @withServiceResolver()
@@ -31,9 +29,9 @@ class ProjectsPage extends LitElement {
         {
           type: 'elasticsearch-query-dsl-mixin',
           query: {
-            "exists": {
-              "field": "name",
-            }
+            exists: {
+              field: 'name',
+            },
           },
           parameters: {
             nodeTypes: ['Project'],
@@ -46,9 +44,7 @@ class ProjectsPage extends LitElement {
       .then((results) => {
         const tmp = results as unknown as ElementHydrationStepResult;
         const projects = tmp as unknown as Project[];
-        this.projects = [...projects].sort((a, b) =>
-          a.data.name.localeCompare(b.data.name)
-        );
+        this.projects = [...projects].sort((a, b) => a.data.name.localeCompare(b.data.name));
         this.requestUpdate();
       });
   }
@@ -56,11 +52,8 @@ class ProjectsPage extends LitElement {
   render(): TemplateResult {
     return html`
       <div class="m-auto container flex flex-col gap-2 p-3">
-
         <wa-breadcrumb>
-          <wa-breadcrumb-item href="https://example.com/home">
-            Projects
-          </wa-breadcrumb-item>
+          <wa-breadcrumb-item href="https://example.com/home"> Projects </wa-breadcrumb-item>
         </wa-breadcrumb>
 
         <div class="flex flex-row-reverse">

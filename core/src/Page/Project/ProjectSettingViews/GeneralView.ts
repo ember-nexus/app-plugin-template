@@ -1,14 +1,12 @@
 import { ApiWrapper, ServiceResolver } from '@ember-nexus/app-core/Service';
 import { ServiceIdentifier } from '@ember-nexus/app-core/Type/Enum';
 import { LitElement, TemplateResult, html, unsafeCSS } from 'lit';
-import {customElement, property} from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators.js';
 
 import { withServiceResolver } from '../../../Decorator/index.js';
 import { pageStyle } from '../../../Style/index.js';
 import { style } from '../../../style.js';
-import {Project} from "../../../Type/Element";
-import WaDialog from "@awesome.me/webawesome/dist/components/dialog/dialog";
-
+import { Project } from '../../../Type/Element/index.js';
 
 @customElement('ember-nexus-template-page-project-settings-view-general')
 @withServiceResolver()
@@ -41,61 +39,34 @@ class GeneralView extends LitElement {
     this.color = target.value;
   }
 
-  updateProject(){
+  updateProject() {
     const apiWrapper = this.serviceResolver.getServiceOrFail<ApiWrapper>(ServiceIdentifier.serviceApiWrapper);
     apiWrapper
-      .patchElement(
-        this.elementId,
-        {
-          name: this.name,
-          description: this.description,
-          color: this.color
-        } satisfies Project["data"]
-      )
+      .patchElement(this.elementId, {
+        name: this.name,
+        description: this.description,
+        color: this.color,
+      } satisfies Project['data'])
       .then(() => {
-        console.log("updated project");
-      });
-  }
-
-  openDeleteProjectPrompt(){
-    const dialog: WaDialog = this.renderRoot.querySelector('#delete-project-dialog');
-    dialog.open = true;
-  }
-
-  deleteProject(){
-    const apiWrapper = this.serviceResolver.getServiceOrFail<ApiWrapper>(ServiceIdentifier.serviceApiWrapper);
-    apiWrapper
-      .deleteElement(this.elementId)
-      .then(() => {
-        console.log("deleted project");
-        const dialog: WaDialog = this.renderRoot.querySelector('#delete-project-dialog');
-        dialog.open = false;
+        console.log('updated project');
       });
   }
 
   refreshData(): void {
     const apiWrapper = this.serviceResolver.getServiceOrFail<ApiWrapper>(ServiceIdentifier.serviceApiWrapper);
-    apiWrapper
-      .getElement(this.elementId)
-      .then((result) => {
-        this.project = result as Project;
-        this.name = this.project.data.name;
-        this.description = this.project.data.description;
-        this.color = this.project.data.color;
-        this.requestUpdate();
-      });
+    apiWrapper.getElement(this.elementId).then((result) => {
+      this.project = result as Project;
+      this.name = this.project.data.name;
+      this.description = this.project.data.description;
+      this.color = this.project.data.color;
+      this.requestUpdate();
+    });
   }
 
   render(): TemplateResult {
     return html`
       <div class="flex flex-col gap-2 p-3">
-
-        <wa-input
-          label="Name"
-          required
-          .value=${this.name}
-          @input=${this.handleNameChange}
-        ></wa-input>
+        <wa-input label="Name" required .value=${this.name} @input=${this.handleNameChange}></wa-input>
 
         <wa-textarea
           label="Description"
@@ -117,17 +88,7 @@ class GeneralView extends LitElement {
 
         <div class="flex flex-row-reverse gap-2">
           <button class="btn btn-primary" @click="${this.updateProject}">update project</button>
-          <button class="btn btn-warning" @click="${this.openDeleteProjectPrompt}">delete project</button>
         </div>
-
-        <wa-dialog label="Confirm action" light-dismiss id="delete-project-dialog">
-          Do you really want to delete the project "${this.project?.data.name}"?
-          <div class="flex columns-2 gap-0.5" slot="footer">
-            <button class="btn" data-dialog="close">cancel</button>
-            <button class="btn btn-warning" @click="${this.deleteProject}">delete project</button>
-          </div>
-        </wa-dialog>
-
       </div>
     `;
   }

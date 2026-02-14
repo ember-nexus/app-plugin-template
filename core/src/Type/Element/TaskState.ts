@@ -1,11 +1,11 @@
-import {Node} from '@ember-nexus/app-core/Type/Definition';
+import { Node } from '@ember-nexus/app-core/Type/Definition';
 
 type TaskState = Node & {
-  type: 'TaskState',
+  type: 'TaskState';
   data: {
     name: string;
     color: string;
   };
 };
 
-export {TaskState};
+export { TaskState };

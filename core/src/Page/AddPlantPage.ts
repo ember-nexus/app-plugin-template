@@ -63,16 +63,8 @@ class AddPlantPage extends LitElement {
           <div class="card-body">
             <h2 class="card-title">Add Plant</h2>
 
-            <form
-              class="flex flex-col gap-4"
-              @submit=${this.submit}
-            >
-              <wa-input
-                label="Name"
-                required
-                value=${this.plant.name}
-                @input=${this.handleNameChange}
-              ></wa-input>
+            <form class="flex flex-col gap-4" @submit=${this.submit}>
+              <wa-input label="Name" required value=${this.plant.name} @input=${this.handleNameChange}></wa-input>
 
               <wa-input
                 label="Scientific Name"
@@ -109,9 +101,7 @@ class AddPlantPage extends LitElement {
               ></wa-color-picker>
 
               <div class="card-actions justify-end pt-2">
-                <button type="submit" class="btn btn-primary">
-                  Create Plant
-                </button>
+                <button type="submit" class="btn btn-primary">Create Plant</button>
               </div>
             </form>
           </div>
@@ -119,7 +109,6 @@ class AddPlantPage extends LitElement {
       </div>
     `;
   }
-
 }
 
 export { AddPlantPage };

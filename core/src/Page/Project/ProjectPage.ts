@@ -1,15 +1,14 @@
 import { ApiWrapper, ServiceResolver } from '@ember-nexus/app-core/Service';
+import { CypherPathSubsetStep, ElementHydrationStep } from '@ember-nexus/app-core/Type/Definition/Search/Step';
+import { ElementHydrationStepResult } from '@ember-nexus/app-core/Type/Definition/Search/StepResult';
 import { ServiceIdentifier } from '@ember-nexus/app-core/Type/Enum';
 import { LitElement, TemplateResult, html, unsafeCSS } from 'lit';
-import {customElement, property} from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators.js';
 
 import { withServiceResolver } from '../../Decorator/index.js';
 import { pageStyle } from '../../Style/index.js';
 import { style } from '../../style.js';
-import {Project, TaskState} from "../../Type/Element";
-import {CypherPathSubsetStep, ElementHydrationStep} from "@ember-nexus/app-core/Type/Definition/Search/Step";
-import {ElementHydrationStepResult} from "@ember-nexus/app-core/Type/Definition/Search/StepResult";
-
+import { Project, TaskState } from '../../Type/Element/index.js';
 
 @customElement('ember-nexus-template-page-project')
 @withServiceResolver()
@@ -26,19 +25,17 @@ class ProjectPage extends LitElement {
 
   refreshData(): void {
     const apiWrapper = this.serviceResolver.getServiceOrFail<ApiWrapper>(ServiceIdentifier.serviceApiWrapper);
-    apiWrapper
-      .getElement(this.elementId)
-      .then((result) => {
-        this.project = result as Project;
-        this.requestUpdate();
-      });
+    apiWrapper.getElement(this.elementId).then((result) => {
+      this.project = result as Project;
+      this.requestUpdate();
+    });
     apiWrapper
       .postSearch([
         {
           type: 'cypher-path-subset',
-          query: "MATCH path=((:Project {id: $projectId})-[:OWNS|HAS_READ_ACCESS*..]->(ts:TaskState)) RETURN path",
+          query: 'MATCH path=((:Project {id: $projectId})-[:OWNS|HAS_READ_ACCESS*..]->(ts:TaskState)) RETURN path',
           parameters: {
-            projectId: this.elementId
+            projectId: this.elementId,
           },
         } satisfies CypherPathSubsetStep,
         {
@@ -48,10 +45,8 @@ class ProjectPage extends LitElement {
       .then((results) => {
         const elements = results as unknown as ElementHydrationStepResult;
         const taskStates = (elements as any[])
-          .filter((element) => element.type === "TaskState")
-          .sort((a, b) =>
-            (a?.data?.name ?? "").localeCompare(b?.data?.name ?? "")
-          ) as TaskState[];
+          .filter((element) => element.type === 'TaskState')
+          .sort((a, b) => (a?.data?.name ?? '').localeCompare(b?.data?.name ?? '')) as TaskState[];
 
         this.taskStates = taskStates;
         this.requestUpdate();
@@ -61,17 +56,13 @@ class ProjectPage extends LitElement {
   render(): TemplateResult {
     return html`
       <div class="m-auto container flex flex-col gap-2 p-3">
-
         <wa-breadcrumb>
           <wa-breadcrumb-item href="https://example.com/home">
             Projects
             <wa-icon slot="separator" name="chevron-right" variant="solid"></wa-icon>
           </wa-breadcrumb-item>
-          <wa-breadcrumb-item href="https://example.com/home/services">
-            ${this.project?.data.name}
-          </wa-breadcrumb-item>
+          <wa-breadcrumb-item href="https://example.com/home/services"> ${this.project?.data.name} </wa-breadcrumb-item>
         </wa-breadcrumb>
-
 
         <div class="flex flex-row-reverse gap-2">
           <button class="btn btn-primary">project settings</button>
@@ -90,13 +81,13 @@ class ProjectPage extends LitElement {
             ${this.taskStates.map(
               (taskState) =>
                 html`<wa-option value="${taskState.id}">
-                ${taskState.data.name}
-                <div
-                  class="inline-block w-[1em] h-[1em] mr-2 rounded-full"
-                  style="background-color: ${taskState.data.color ?? '#ffffff'};"
-                  slot="start"
-                ></div>
-              </wa-option>`,
+                  ${taskState.data.name}
+                  <div
+                    class="inline-block w-[1em] h-[1em] mr-2 rounded-full"
+                    style="background-color: ${taskState.data.color ?? '#ffffff'};"
+                    slot="start"
+                  ></div>
+                </wa-option>`,
             )}
           </wa-select>
         </div>
