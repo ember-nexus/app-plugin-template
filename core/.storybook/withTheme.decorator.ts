@@ -14,7 +14,12 @@ export const withTheme = <TRenderer extends Renderer = any>({ themes, defaultThe
     useEffect(() => {
       const themeKey = themeOverride || selected || defaultTheme;
 
-      document.body.setAttribute('data-theme', themeKey);
+      document.body.setAttribute('data-theme', themes[themeKey].daisyUi);
+      document.documentElement.classList.remove("wa-dark");
+      if (!themes[themeKey].isLight) {
+        document.documentElement.classList.add("wa-dark");
+      }
+
       //themeService.applyTheme(themeKey);
     }, [themeOverride, selected]);
 

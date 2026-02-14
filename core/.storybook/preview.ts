@@ -54,6 +54,7 @@ async function init(){
   console.log("init done");
 }
 
+document.documentElement.classList.add("wa-dark", "wa-theme-default", "wa-palette-default", "wa-brand-blue");
 init();
 
 const preview: Preview = {
@@ -88,11 +89,26 @@ const preview: Preview = {
   decorators: [
     withTheme({
       themes: {
-        light: 'light',
-        dark: 'dark',
-        emerald: 'emerald',
-        dim: 'dim',
-        wireframe: 'wireframe',
+        light: {
+          daisyUi: 'light',
+          isLight: true
+        },
+        dark: {
+          daisyUi: 'dark',
+          isLight: false
+        },
+        emerald: {
+          daisyUi: 'emerald',
+          isLight: true
+        },
+        dim: {
+          daisyUi: 'dim',
+          isLight: false
+        },
+        wireframe: {
+          daisyUi: 'wireframe',
+          isLight: true
+        },
       },
       defaultTheme: 'light',
       _themeService: null

@@ -33,6 +33,7 @@
     "README.md"
   ],
   "dependencies": {
+    "@awesome.me/webawesome": "^3.2.1",
     "@ember-nexus/app-core": "^0.1.4",
     "@lit/reactive-element": "^2.1.2",
     "daisyui": "^5.5.18",
