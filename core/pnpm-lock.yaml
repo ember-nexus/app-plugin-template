@@ -23,6 +23,9 @@ importers:
       lit:
         specifier: ^3.3.2
         version: 3.3.2
+      lucide-static:
+        specifier: ^0.564.0
+        version: 0.564.0
       tailwindcss:
         specifier: ^4.1.18
         version: 4.1.18
@@ -2309,6 +2312,9 @@ packages:
   lru-cache@11.2.6:
     resolution: {integrity: sha512-ESL2CrkS/2wTPfuend7Zhkzo2u0daGJ/A2VucJOgQ/C48S/zB8MMeMHSGKYpXhIjbPxfuezITkaBH1wqv00DDQ==}
     engines: {node: 20 || >=22}
+
+  lucide-static@0.564.0:
+    resolution: {integrity: sha512-SfECSvMnoIPa8ZuH4Ubtjc1ZWSxLpPy9yhHt+0DR8vvMEFWxw0gjX2INCNkIXWllFsiJDO4d9iye6cXvIxMG0Q==}
 
   luxon@3.7.2:
     resolution: {integrity: sha512-vtEhXh/gNjI9Yg1u4jX/0YVPMvxzHuGgCm6tC5kZyb08yjGWGnqAjGJvcXbqQR2P3MyMEFnRbpcdFS6PBcLqew==}
@@ -5394,6 +5400,8 @@ snapshots:
   loupe@3.2.1: {}
 
   lru-cache@11.2.6: {}
+
+  lucide-static@0.564.0: {}
 
   luxon@3.7.2: {}
 

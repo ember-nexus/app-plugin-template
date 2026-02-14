@@ -70,14 +70,14 @@ class AddPlantPage extends LitElement {
               <wa-input
                 label="Name"
                 required
-                .value=${this.plant.name}
+                value=${this.plant.name}
                 @input=${this.handleNameChange}
               ></wa-input>
 
               <wa-input
                 label="Scientific Name"
                 required
-                .value=${this.plant.scientificName}
+                value=${this.plant.scientificName}
                 @input=${this.handleScientificNameChange}
               ></wa-input>
 
@@ -85,14 +85,14 @@ class AddPlantPage extends LitElement {
                 label="Description"
                 required
                 resize="none"
-                .value=${this.plant.description}
+                value=${this.plant.description}
                 @input=${this.handleDescriptionChange}
               ></wa-textarea>
 
               <wa-select
                 label="Primary Color"
                 required
-                .value=${this.plant.primaryColor}
+                value=${this.plant.primaryColor}
                 @change=${this.handleColorChange}
               >
                 <wa-option value="red">Red</wa-option>

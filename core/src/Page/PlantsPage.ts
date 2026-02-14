@@ -103,7 +103,7 @@ class PlantsPage extends LitElement {
             type="text"
             placeholder="Type here"
             class="input"
-            .value=${this.query}
+            value=${this.query}
             @input=${this.handleInputChange}
           />
           <h2 class="card-title">Results for: ${this.query}</h2>

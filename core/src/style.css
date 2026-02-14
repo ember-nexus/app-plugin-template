@@ -19,7 +19,7 @@ html, :root {
     box-sizing: inherit;
 }
 
-wa-input, wa-textarea, wa-select, wa-option, wa-breadcrumb {
+wa-input, wa-textarea, wa-select, wa-option, wa-breadcrumb, wa-color-picker {
     font-size: 16px;
 }
 

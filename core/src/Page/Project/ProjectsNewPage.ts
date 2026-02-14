@@ -69,7 +69,7 @@ class ProjectNewPage extends LitElement {
         <wa-input
           label="Name"
           required
-          .value=${this.name}
+          value=${this.name}
           @input=${this.handleNameChange}
         ></wa-input>
 
@@ -77,7 +77,7 @@ class ProjectNewPage extends LitElement {
           label="Description"
           required
           resize="none"
-          .value=${this.description}
+          value=${this.description}
           @input=${this.handleDescriptionChange}
         ></wa-textarea>
 
@@ -87,7 +87,7 @@ class ProjectNewPage extends LitElement {
                   #d0021b; #f5a623; #f8e71c; #8b572a; #7ed321; #417505; #bd10e0; #9013fe;
                   #4a90e2; #50e3c2; #b8e986; #000; #444; #888; #ccc; #fff;
                 "
-          .value=${this.color}
+          value=${this.color}
           @input=${this.handleColorChange}
         ></wa-color-picker>
 
