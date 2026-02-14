@@ -36,7 +36,7 @@ class ProjectPage extends LitElement {
       .postSearch([
         {
           type: 'cypher-path-subset',
-          query: "MATCH path=((:Project {id: $projectId})-[:OWNS*..]->(ts:TaskState)) RETURN path",
+          query: "MATCH path=((:Project {id: $projectId})-[:OWNS|HAS_READ_ACCESS*..]->(ts:TaskState)) RETURN path",
           parameters: {
             projectId: this.elementId
           },
@@ -60,8 +60,19 @@ class ProjectPage extends LitElement {
 
   render(): TemplateResult {
     return html`
-      <div class="p-3 flex flex-col gap-2">
-        <h2>Project</h2>
+      <div class="m-auto container flex flex-col gap-2 p-3">
+
+        <wa-breadcrumb>
+          <wa-breadcrumb-item href="https://example.com/home">
+            Projects
+            <wa-icon slot="separator" name="chevron-right" variant="solid"></wa-icon>
+          </wa-breadcrumb-item>
+          <wa-breadcrumb-item href="https://example.com/home/services">
+            ${this.project?.data.name}
+          </wa-breadcrumb-item>
+        </wa-breadcrumb>
+
+
         <div class="flex flex-row-reverse gap-2">
           <button class="btn btn-primary">project settings</button>
           <button class="btn btn-primary">create new ticket</button>

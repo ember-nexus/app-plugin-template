@@ -128,7 +128,7 @@ class ProjectSettingsPage extends LitElement {
       .postSearch([
         {
           type: 'cypher-path-subset',
-          query: "MATCH path=((:Project {id: $projectId})-[:OWNS*..]->(ts:TaskState)) RETURN path",
+          query: "MATCH path=((:Project {id: $projectId})-[:OWNS|HAS_READ_ACCESS*..]->(ts:TaskState)) RETURN path",
           parameters: {
             projectId: this.elementId
           },
@@ -154,13 +154,17 @@ class ProjectSettingsPage extends LitElement {
     return html`
       <div class="m-auto container flex flex-col gap-2 p-3">
 
-        <div class="breadcrumbs text-sm">
-          <ul>
-            <li><a>Projects</a></li>
-            <li><a>${this.project?.data.name}</a></li>
-            <li>Settings</li>
-          </ul>
-        </div>
+        <wa-breadcrumb>
+          <wa-breadcrumb-item href="https://example.com/home">
+            Projects
+            <wa-icon slot="separator" name="chevron-right" variant="solid"></wa-icon>
+          </wa-breadcrumb-item>
+          <wa-breadcrumb-item href="https://example.com/home/services">
+            ${this.project?.data.name}
+            <wa-icon slot="separator" name="chevron-right" variant="solid"></wa-icon>
+          </wa-breadcrumb-item>
+          <wa-breadcrumb-item>Settings</wa-breadcrumb-item>
+        </wa-breadcrumb>
 
         <h2>Project Settings</h2>
 

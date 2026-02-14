@@ -55,8 +55,14 @@ class ProjectsPage extends LitElement {
 
   render(): TemplateResult {
     return html`
-      <div class="p-3 flex flex-col gap-2">
-        <h2>Projects</h2>
+      <div class="m-auto container flex flex-col gap-2 p-3">
+
+        <wa-breadcrumb>
+          <wa-breadcrumb-item href="https://example.com/home">
+            Projects
+          </wa-breadcrumb-item>
+        </wa-breadcrumb>
+
         <div class="flex flex-row-reverse">
           <button class="btn btn-primary">create new project todo fixme</button>
         </div>

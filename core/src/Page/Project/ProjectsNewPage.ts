@@ -56,8 +56,15 @@ class ProjectNewPage extends LitElement {
 
   render(): TemplateResult {
     return html`
-      <div class="p-3 flex flex-col gap-2">
-        <h2>New Project</h2>
+      <div class="m-auto container flex flex-col gap-2 p-3">
+
+        <wa-breadcrumb>
+          <wa-breadcrumb-item href="https://example.com/home">
+            Projects
+            <wa-icon slot="separator" name="chevron-right" variant="solid"></wa-icon>
+          </wa-breadcrumb-item>
+          <wa-breadcrumb-item>New Project</wa-breadcrumb-item>
+        </wa-breadcrumb>
 
         <wa-input
           label="Name"

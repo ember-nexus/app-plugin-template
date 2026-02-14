@@ -19,10 +19,18 @@ html, :root {
     box-sizing: inherit;
 }
 
-wa-input, wa-textarea, wa-select, wa-option {
+wa-input, wa-textarea, wa-select, wa-option, wa-breadcrumb {
     font-size: 16px;
 }
 
 wa-option {
     padding: 0.5em 1em 0.5em 0.25em;
+}
+
+@layer theme {
+    :root, :host {
+        --font-sans: inherit;
+        --default-font-family: inherit;
+        --default-mono-font-family: inherit;
+    }
 }
