@@ -66,6 +66,9 @@ class GeneralView extends LitElement {
   render(): TemplateResult {
     return html`
       <div class="flex flex-col gap-2 p-3">
+
+        <h1>Project properties</h1>
+
         <wa-input label="Name" required .value=${this.name} @input=${this.handleNameChange}></wa-input>
 
         <wa-textarea

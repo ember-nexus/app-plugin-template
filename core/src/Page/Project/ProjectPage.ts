@@ -55,7 +55,7 @@ class ProjectPage extends LitElement {
 
   render(): TemplateResult {
     return html`
-      <div class="m-auto container flex flex-col gap-2 p-3">
+      <ember-nexus-template-layout-default>
         <wa-breadcrumb>
           <wa-breadcrumb-item href="https://example.com/home">
             Projects
@@ -91,7 +91,7 @@ class ProjectPage extends LitElement {
             )}
           </wa-select>
         </div>
-      </div>
+      </ember-nexus-template-layout-default>
     `;
   }
 }

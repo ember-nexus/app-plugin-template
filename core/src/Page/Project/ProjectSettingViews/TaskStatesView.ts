@@ -209,19 +209,25 @@ class TaskStatesView extends LitElement {
 
   render(): TemplateResult {
     return html`
-      <div class="flex flex-col gap-2 p-3">
-        <div class="flex flex-row-reverse gap-2">
-          <button class="btn btn-primary" @click=${this.openCreateTaskStateDialog}>
-            <wa-icon src="${this.encodeSvg(Plus)}"></wa-icon>
-            create task state
-          </button>
+      <div class="flex flex-col w-full gap-3">
+        <div class="flex flex-col gap-2 p-3 card bg-base-200 shadow-sm">
+          <p>Actions</p>
+          <div class="flex flex-row-reverse gap-2">
+            <button class="btn btn-primary" @click=${this.openCreateTaskStateDialog}>
+              <wa-icon src="${this.encodeSvg(Plus)}"></wa-icon>
+              create task state
+            </button>
+          </div>
         </div>
-
-        <ul class="w-full">
-          ${this.taskStates.map(this.renderTaskState.bind(this))}
-        </ul>
-
-        ${this.renderCreateTaskStateDialog()} ${this.renderUpdateTaskStateDialog()}
+        <div class="flex flex-col card bg-base-200 shadow-sm">
+          <div class="p-3 border-b border-gray-300">
+            <p>Configured Task States</p>
+          </div>
+          <ul class="w-full">
+            ${this.taskStates.map(this.renderTaskState.bind(this))}
+          </ul>
+          ${this.renderCreateTaskStateDialog()} ${this.renderUpdateTaskStateDialog()}
+        </div>
       </div>
     `;
   }

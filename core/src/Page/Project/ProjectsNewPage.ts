@@ -52,7 +52,7 @@ class ProjectNewPage extends LitElement {
 
   render(): TemplateResult {
     return html`
-      <div class="m-auto container flex flex-col gap-2 p-3">
+      <ember-nexus-template-layout-default>
         <wa-breadcrumb>
           <wa-breadcrumb-item href="https://example.com/home">
             Projects
@@ -82,7 +82,7 @@ class ProjectNewPage extends LitElement {
         ></wa-color-picker>
 
         <button class="btn btn-primary" @click="${this.createNewProject}">create new project</button>
-      </div>
+      </ember-nexus-template-layout-default>
     `;
   }
 }
