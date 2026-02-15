@@ -87,12 +87,13 @@ class ProjectSettingsPage extends LitElement {
           <wa-breadcrumb-item>Settings</wa-breadcrumb-item>
         </wa-breadcrumb>
 
-        <h1 class="py-4 text-4xl font-semibold">Project Settings</h1>
+<!--        <h1 class="py-4 text-4xl font-semibold">Project Settings</h1>-->
 
         <div class="grid grid-cols-8 pt-3 sm:grid-cols-10 gap-1">
-          <div class="relative my-4 w-56 sm:hidden">
+          <div class="relative my-4 w-full col-span-8 sm:hidden">
             <wa-select
               value=${this.currentView}
+              label="Section"
               @change=${this.handleSelectViewChange}
             >
               ${Object.entries(this.views).map(

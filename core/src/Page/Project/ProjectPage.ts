@@ -65,8 +65,8 @@ class ProjectPage extends LitElement {
         </wa-breadcrumb>
 
         <div class="flex flex-row-reverse gap-2">
-          <button class="btn btn-primary">project settings</button>
-          <button class="btn btn-primary">create new ticket</button>
+          <button class="btn btn-neutral">project settings</button>
+          <button class="btn btn-success">create new ticket</button>
         </div>
         <h2>
           <div

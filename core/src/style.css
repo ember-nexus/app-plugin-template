@@ -34,3 +34,12 @@ wa-option {
         --default-mono-font-family: inherit;
     }
 }
+
+.menu > li > *:focus {
+    outline: 2px solid var(--color-info);
+    outline-offset: 2px;
+}
+
+.btn-neutral:focus {
+    outline-color: var(--color-info);
+}

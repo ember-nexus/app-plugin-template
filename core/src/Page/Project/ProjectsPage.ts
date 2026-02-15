@@ -57,7 +57,7 @@ class ProjectsPage extends LitElement {
         </wa-breadcrumb>
 
         <div class="flex flex-row-reverse">
-          <button class="btn btn-primary">create new project todo fixme</button>
+          <button class="btn btn-success">create new project todo fixme</button>
         </div>
         <div class="grid gap-4 grid-cols-1 sm:[grid-template-columns:repeat(auto-fit,minmax(25em,1fr))]">
           ${this.projects.map(

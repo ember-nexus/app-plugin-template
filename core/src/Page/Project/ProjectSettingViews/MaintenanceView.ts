@@ -8,6 +8,7 @@ import { withServiceResolver } from '../../../Decorator/index.js';
 import { pageStyle } from '../../../Style/index.js';
 import { style } from '../../../style.js';
 import { Project } from '../../../Type/Element/index.js';
+import {Trash2} from "lucide-static";
 
 @customElement('ember-nexus-template-page-project-settings-view-maintenance')
 @withServiceResolver()
@@ -39,20 +40,29 @@ class MaintenanceView extends LitElement {
     const apiWrapper = this.serviceResolver.getServiceOrFail<ApiWrapper>(ServiceIdentifier.serviceApiWrapper);
     apiWrapper.getElement(this.elementId).then((result) => {
       this.project = result as Project;
-      this.name = this.project.data.name;
-      this.description = this.project.data.description;
-      this.color = this.project.data.color;
       this.requestUpdate();
     });
   }
 
+  private encodeSvg(svg: string): string {
+    const encoded = encodeURIComponent(svg).replace(/'/g, '%27').replace(/"/g, '%22');
+    return `data:image/svg+xml,${encoded}`;
+  }
+
   render(): TemplateResult {
     return html`
-      <div class="flex flex-col gap-2 p-3">
-        <div class="flex gap-2">
-          <button class="btn btn-error" @click="${this.openDeleteProjectPrompt}">delete project</button>
+      <div class="flex flex-col w-full gap-3">
+        <div class="card bg-base-200 shadow-sm p-3">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <p class="text-left font-bold">Maintenance</p>
+            <div class="flex justify-end">
+              <button class="btn btn-error" @click="${this.openDeleteProjectPrompt}">
+                <wa-icon src="${this.encodeSvg(Trash2)}"></wa-icon>
+                Delete project
+              </button>
+            </div>
+          </div>
         </div>
-
         <wa-dialog label="Confirm action" light-dismiss id="delete-project-dialog">
           Do you really want to delete the project "${this.project?.data.name}"?
           <div class="flex columns-2 gap-0.5" slot="footer">

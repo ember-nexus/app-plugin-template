@@ -81,7 +81,7 @@ class ProjectNewPage extends LitElement {
           @input=${this.handleColorChange}
         ></wa-color-picker>
 
-        <button class="btn btn-primary" @click="${this.createNewProject}">create new project</button>
+        <button class="btn btn-success" @click="${this.createNewProject}">create new project</button>
       </ember-nexus-template-layout-default>
     `;
   }
